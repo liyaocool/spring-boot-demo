@@ -33,8 +33,7 @@ public class ArticleController {
     @GetMapping("{id}")
     public AjaxResponse getArticleById(@PathVariable Integer id) {
         log.info("getArticleById:" + id);
-        Article article = new Article(1, "liyaocool", "测试标题", "测试的内容.", new Date(), new Date());
-        article.setId(id);
+        Article article = Article.builder().id(id).author("小虾米").title("笑傲江湖").content("令狐冲的独孤九剑").build();
         return AjaxResponse.sucess(article);
     }
 }
