@@ -2,11 +2,13 @@ package com.thinrain.springbootdemo.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
 @Data //自动装配setter,getter
 @AllArgsConstructor //自动初始化声明的成员变量
+@NoArgsConstructor //无参构造
 public class Article {
     private int id;
     private String author;
