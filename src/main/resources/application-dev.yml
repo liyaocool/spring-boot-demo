@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+family:
+  family-name: bad family
+  father:
+    name: lao wang
+    age: 30
+  mother:
+    alias:
+      - lovely
+      - ailice
+  child:
+    name: Xiao Tou
+    age: 9
+    friends:
+      - hobby: football
+        sex:  male
+      - hobby: basketball
+        sex: female
+
