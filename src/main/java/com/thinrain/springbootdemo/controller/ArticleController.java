@@ -3,9 +3,12 @@ package com.thinrain.springbootdemo.controller;
 import com.thinrain.springbootdemo.model.AjaxResponse;
 import com.thinrain.springbootdemo.model.Article;
 import com.thinrain.springbootdemo.model.Reader;
+import com.thinrain.springbootdemo.service.ArticleService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -15,14 +18,19 @@ import java.util.List;
 @RequestMapping("/articles")
 public class ArticleController {
 
+    @Resource
+    ArticleService articleService;
+
     @PostMapping()
     public AjaxResponse addArticle(@RequestBody Article article) {
+        articleService.addArticle(article);
         log.info("addArticle:" + article);
         return AjaxResponse.sucess(article);
     }
 
     @DeleteMapping("{id}")
     public AjaxResponse delArticleById(@PathVariable Integer id) {
+        articleService.delArticle(id);
         log.info("delArticleById:" + id);
         return AjaxResponse.sucess();
     }
