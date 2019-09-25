@@ -1,4 +1,4 @@
-package com.thinrain.springbootdemo;
+package com.thinrain.springbootdemo.restful;
 
 import com.thinrain.springbootdemo.controller.ArticleController;
 import lombok.extern.slf4j.Slf4j;

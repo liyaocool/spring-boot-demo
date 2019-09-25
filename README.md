@@ -9,3 +9,5 @@
 - 封装全局响应前端数据结构工具函数
 - jackson,lombok常用注解
 - Mockito对接口单元测试
+- swagger自动生成API文档
+- yaml配置文件,占位符使用，实体类调用

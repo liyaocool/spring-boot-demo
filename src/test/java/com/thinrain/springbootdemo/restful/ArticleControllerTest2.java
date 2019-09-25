@@ -1,4 +1,4 @@
-package com.thinrain.springbootdemo;
+package com.thinrain.springbootdemo.restful;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.thinrain.springbootdemo.controller.ArticleController;
