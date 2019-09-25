@@ -2,10 +2,13 @@ package com.thinrain.springbootdemo.controller;
 
 import com.thinrain.springbootdemo.model.AjaxResponse;
 import com.thinrain.springbootdemo.model.Article;
+import com.thinrain.springbootdemo.model.Reader;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -33,7 +36,14 @@ public class ArticleController {
     @GetMapping("{id}")
     public AjaxResponse getArticleById(@PathVariable Integer id) {
         log.info("getArticleById:" + id);
-        Article article = Article.builder().id(id).author("小虾米").title("笑傲江湖").content("令狐冲的独孤九剑").build();
+
+        //模拟数据
+        List<Reader> readers = new ArrayList<>();
+        Reader reader1 = new Reader(1,"zhangsan",19);
+        Reader reader2 = new Reader(2,"lisi",29);
+        readers.add(reader1);
+        readers.add(reader2);
+        Article article = Article.builder().id(id).author("小虾米").title("笑傲江湖").content("令狐冲的独孤九剑").readers(readers).build();
         return AjaxResponse.sucess(article);
     }
 }

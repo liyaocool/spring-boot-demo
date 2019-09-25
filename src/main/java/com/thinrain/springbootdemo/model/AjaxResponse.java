@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class AjaxResponse {
-    private int code;
+    private Integer code;
     private String message;
     private Object data;
 
