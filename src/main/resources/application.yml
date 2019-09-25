@@ -2,3 +2,8 @@
 spring:
   profiles:
     active: prod
+
+#实际生产项目,不可把这个配置写在这,同上 命令行传参
+jasypt:
+  encryptor:
+    password: liyaocool

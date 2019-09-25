@@ -13,7 +13,7 @@ spring:
 #    5. 孩子除了名字(name)和年龄（age）两个属性，还有一个friends的集合
 #    6. 每个friend有两个属性：hobby(爱好)和性别(sex)
 family:
-  family-name: happy family
+  family-name: ENC(iuZ79/mGji3NcEdesWPTCKF+9F8Cosmr)
   father:
     name: Da Tou
     age: 30
