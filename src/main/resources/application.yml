@@ -1,7 +1,7 @@
 #打包后，java -jar demo.jar --spring.profiles.active.xxx 启动 该命令>内部特定环境>内部默认环境
 spring:
   profiles:
-    active: prod
+    active: dev
 
 #实际生产项目,不可把这个配置写在这,同上 命令行传参
 jasypt:
