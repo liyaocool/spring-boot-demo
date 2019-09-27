@@ -1,21 +1,55 @@
 package com.thinrain.springbootdemo.service;
 
-import com.thinrain.springbootdemo.model.Article;
-import lombok.extern.slf4j.Slf4j;
+import com.thinrain.springbootdemo.dao.ArticlePO;
+import com.thinrain.springbootdemo.dao.ArticleRepository;
+import com.thinrain.springbootdemo.model.ArticleVO;
+import com.thinrain.springbootdemo.utils.DozerUtils;
+import org.dozer.Mapper;
 import org.springframework.stereotype.Service;
 
-@Slf4j
+import javax.annotation.Resource;
+import java.util.List;
+import java.util.Optional;
+
 @Service
-public class ArticleService {
-    public String addArticle(Article article) {
-        //DAO层
-        log.info("已发表文章!" + article);
-        return "已发表文章!";
+public class ArticleService implements IArticleService {
+
+    @Resource
+    private ArticleRepository articleRepository;
+
+    @Resource
+    private Mapper dozerMapper;
+
+    public ArticleVO addArticle(ArticleVO articleVO) {
+
+        ArticlePO articlePO = dozerMapper.map(articleVO, ArticlePO.class);
+        articleRepository.save(articlePO);
+
+        return articleVO;
     }
 
-    public String delArticle(Integer id) {
-        //DAO层
-        log.info("已删除文章!" + id);
-        return "已删除文章!";
+    @Override
+    public void delArticle(Integer id) {
+        articleRepository.deleteById(id);
+    }
+
+    @Override
+    public void updateArticle(ArticleVO article) {
+        ArticlePO articlePO = dozerMapper.map(article, ArticlePO.class);
+        articleRepository.save(articlePO);
+    }
+
+    @Override
+    public ArticleVO getArticle(Integer id) {
+        Optional<ArticlePO> article = articleRepository.findById(id);
+        return dozerMapper.map(article.get(), ArticleVO.class);
+    }
+
+    @Override
+    public List<ArticleVO> getAllArticles() {
+        List<ArticlePO> articleLis = articleRepository.findAll();
+
+        return DozerUtils.mapList(articleLis, ArticleVO.class);
+
     }
 }

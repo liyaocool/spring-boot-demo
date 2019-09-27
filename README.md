@@ -15,3 +15,4 @@
 - 使用jasypt加密敏感信息
 - 新分支springJDBC
 - bean通过Dozer转换
+- 新分支JPA;Spring Data JPA操作数据库
