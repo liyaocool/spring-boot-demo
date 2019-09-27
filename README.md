@@ -14,3 +14,4 @@
 - 不同开发环境采用不同配置文件
 - 使用jasypt加密敏感信息
 - 新分支springJDBC
+- bean通过Dozer转换
