@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor //自动初始化声明的成员变量
 @NoArgsConstructor //无参构造
 @Builder //实例化时候可以快捷使用builder().id().author....build()
-public class Article {
+public class ArticleVO {
 
     private Integer id;
     private String author;

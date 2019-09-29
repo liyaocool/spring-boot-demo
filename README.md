@@ -3,6 +3,7 @@
 ## 常用插件
 - lombok
 - better-mybatis-generator(本地)
+- pageHelper
 
 ## 知识小节(git log)
 - 配置热部署,提高开发环境
@@ -17,3 +18,4 @@
 - 新分支springJDBC
 - bean通过Dozer转换
 - better-mybatis-generator插件自动生成
+- mybatis

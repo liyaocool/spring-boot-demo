@@ -108,7 +108,7 @@
     </if>
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.thinrain.springbootdemo.generator.Article" useGeneratedKeys="true">
-    insert into article (author, content, create_time, 
+    insert into article (author, content, create_time,
       title)
     values (#{author,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, 
       #{title,jdbcType=VARCHAR})

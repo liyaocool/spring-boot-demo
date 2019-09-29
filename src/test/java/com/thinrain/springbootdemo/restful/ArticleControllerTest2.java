@@ -2,12 +2,12 @@ package com.thinrain.springbootdemo.restful;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.thinrain.springbootdemo.controller.ArticleController;
-import com.thinrain.springbootdemo.model.Article;
+import com.thinrain.springbootdemo.model.ArticleVO;
 import com.thinrain.springbootdemo.service.ArticleService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpMethod;
@@ -17,14 +17,17 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import javax.annotation.Resource;
+
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
 @Slf4j
 @RunWith(SpringRunner.class)
+@AutoConfigureMockMvc
 @WebMvcTest(ArticleController.class)
 public class ArticleControllerTest2 {
-    @Autowired
+    @Resource
     private MockMvc mockMvc;
 
     @MockBean
@@ -42,10 +45,10 @@ public class ArticleControllerTest2 {
                 "}";
 
         ObjectMapper objectMapper = new ObjectMapper();
-        Article articleObj = objectMapper.readValue(article, Article.class);
+        ArticleVO articleObj = objectMapper.readValue(article, ArticleVO.class);
 
         //打桩,当运行到某个程序时,直接返回 固定不动的值,here is ok
-        when(articleService.addArticle(articleObj)).thenReturn("here is ok");
+        when(articleService.addArticle(articleObj)).thenReturn(articleObj);
 
         //发送请求的路径方法,携带参数,期待返回的数据和实际返回的数据对比,不对等则报错
         MvcResult result = mockMvc.perform(
